@@ -1,0 +1,36 @@
+Homework solutions of CSCI 561: Artificial Intelligence at the University of Southern California
+
+1) HW1a: Reflex Agent
+I implement a simple reflex agent  for a vacuum cleaner to perform simple actions such as move left/right or suck depending on the states (clean/dirty) of the locations.
+
+2) HW1b:
+- Assignment:
+I help the LA Dept of Transportation (LADOT) develop a pilot scooter program for LA. In order to maximize the scooter activity monitored by the officers,you will take as input the route information, the monitored city area dimensions, and the number of officers available to then generate the best placement of the officers. When an officer and scooter are at the same location at the same time, the officer is able to address a safety issue, and one “Activity point” is gained. The goal is to place the officers in locations that do not conflict with each other, while maximizing the total “Activity points” for the day.
+
+- Approach:
+I use an approach similar to soliving n-queen problem
+
+3) HW2:
+- Assignment:
+Los Angeles Homeless Services Authority (LAHSA) and Safe Parking LA (SPLA) are two organizations in Los Angeles that service the homeless community. LAHSA provides beds in shelters and SPLA manages spaces in parking lots for people living in their cars. In the city’s new app for homelessness, people in need of housing can apply for a space with either service. For this homework, you will help SPLA choose applicants that meet the SPLA specific requirements for the space and that also optimize the use of the parking lot for that week.
+
+- Approach:
++ 3 classes: SPLA, HSA and App will be created to represent the filled calendars of SPLA, LAHSA and all applicants.
++ Maintain two lists of hsaChosen and splaChosen to store the id list of all applicants that have been chosen
++ Create a game that spla and hsa choose by turn, each trying to maximize its own efficiency
+
+4) HW3:
+- Assignment:
+You are the CTO of a new startup company, SpeedRacer, and you want your autonomous cars to navigate throughout the city of Los Angeles. The cars can move North, South, East, or West. The city can be represented in a grid. There will be some obstacles, such as buildings, road closings, etc. If a car crashes
+into a building or road closure, SpeedRacer has to pay $100. You know the locations of these, and they will not change over time. You also spend $1 for gas each time you move. The cars will start from a given SpeedRacer parking lot, and will end at another parking lot. When you arrive at your destination parking lot, you will receive $100. Your goal is to make the most money over time with the greatest likelihood. Your cars have a faulty turning mechanism, so they have a chance of going in a direction other than the one suggested by your model.
+
+The first part of your task is to design an algorithm that determines where your cars should try to go in each city grid location given your goal of making the most money. Then, to make sure that this is a good algorithm when you present it to the rest of your board, you should simulate the car moving through the city grid.
+
+- Approach:
++ With initial locations of obstacles and start/finish locations of each car, create an initial utility grid
++ Iterate to obtain the converged final utility grid
++ Use the final utility grid to obtain the policy grid (which optimal direction to take in each cell)
++ Need to calculate the expected utility grid in each direction before deciding on the optimal move to make
++ Use a function to randomize move at each location based on given probability: 0.7 - 0.1 - 0.1 - 0.1
++ Calculate the path cost at the end
++ Use 10 different seeds to make 10 different simulations for each car
